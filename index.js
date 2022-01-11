@@ -46,6 +46,10 @@ Do the following:
    3. Console log the result
 
    HINT: look up the Number method
+   const party = '1999';
+   Number(party);
+   console.log(party);
+
 */
 
 
@@ -60,10 +64,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a,b){
+  return a * b;
 }
 
+multiply(2,4);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -76,8 +81,9 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+dogYears(3);
+function dogYears(num){
+  return num * 7;
 }
 
 
@@ -109,8 +115,25 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+hungryDog(40,2);
+function hungryDog(weight,age){
+  if (age >= 1) {
+    if (weight < 6) {
+      return weight * 0.05;
+    } else if (weight < 11) {
+      return weight * 0.04;
+    } else if (weight <= 15) {
+      return weight * 0.03;
+    } else {
+      return weight * 0.02;
+    }
+  } else if (age >= 0.583) {
+      return weight * 0.04;
+  } else if (age >= 4/12) {
+      return weight * 0.05;
+  } else {
+    return weight * 0.10;
+  }
 }
 
 
@@ -138,8 +161,44 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+const randChoice = () => {
+  let number = Math.floor(Math.random() * 3);
+  if (number === 0) {
+    return 'rock';
+  } else if (number === 1) {
+    return 'paper';
+  } else {
+    return 'scissors';
+  }
+}
+
 function game(user, computer){
   /*add your code here*/
+  if (user === 'rock') {
+    if (computer === 'paper') {
+      return 'you lose!';
+    } else if (computer === 'scissors') {
+      return 'you win!';
+    } else {
+      return "it's a tie";
+    }
+  } else if (user === 'paper') {
+    if (computer === 'scissors') {
+      return 'you lose!';
+    } else if (computer === 'rock') {
+      return 'you win!';
+    } else {
+      return "it's a tie";
+    }
+  } else {
+    if (computer === 'paper') {
+      return 'you win!';
+    } else if (computer === 'rock') {
+      return 'you lose!';
+    } else {
+      return "it's a tie";
+    }
+  }
 }
 
 
@@ -155,8 +214,8 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers){
+  return kilometers * 0.621371;
 }
 
 
@@ -169,8 +228,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48;
 }
 
 
@@ -185,8 +244,12 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(num){
+  let remainder = num;
+  for (let i=num;i>0;i--){
+    remainder--;
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${remainder} bottles of soda on the wall`;
+  }
 }
 
 
@@ -205,8 +268,18 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(homework){
+  if (homework < 60){
+    return 'you got an F';
+  } else if (homework < 70){
+    return 'you got a D';
+  } else if (homework < 80){
+    return 'you got a C';
+  } else if (homework < 90){
+    return 'you got a B';
+  } else {
+    return 'you got an A';
+  }
 }
 
 
@@ -224,9 +297,21 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(input) {
+  let vowels = ['a','e','i','o','u','y'];
+  let counter = 0;
+  let newput = input.toLowerCase().split("");
+  for (let i=0;i<newput.length;i++){
+    if (vowels.includes(newput[i])){
+      counter++;
+    }
+  }
+  return counter;
 }
+
+const trial = 'Billy Dean is trying his best';
+
+console.log(vowelCounter(trial));
 
 
 
